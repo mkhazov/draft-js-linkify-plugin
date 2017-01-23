@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import linkifyIt from 'linkify-it';
 import modifier from '../modifiers/addLink';
-import styles from './styles.css';
+import styles from '../linkAddStyles.css';
 
 const linkify = linkifyIt();
 

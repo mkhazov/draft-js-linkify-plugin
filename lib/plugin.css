@@ -1,3 +1,130 @@
+.draftJsLinkifyPlugin__addLink__2Slcm {
+  background: #FFF;
+  display: inline-block;
+}
+
+.draftJsLinkifyPlugin__addLinkPopover__bGidN {
+  background: #FFF;
+  position: absolute;
+  height: 54px;
+  width: 300px;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: 0px 4px 30px 0px rgba(220,220,220,1);
+  z-index: 1000;
+  -webkit-transition: 0.5s linear height;
+  transition: 0.5s linear height;
+}
+
+.draftJsLinkifyPlugin__addLinkClosedPopover__1z-Ao {
+  display: none;
+}
+
+.draftJsLinkifyPlugin__addLinkButton__2BKP8 {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 0;
+  color: #888;
+  margin: 0;
+  border-radius: 1.5em;
+  cursor: pointer;
+  height: 1.5em;
+  width: 2.5em;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+.draftJsLinkifyPlugin__addLinkButton__2BKP8:focus {
+  outline: 0; /* reset for :focus */
+}
+
+.draftJsLinkifyPlugin__addLinkButton__2BKP8:hover {
+  background: #f3f3f3;
+}
+
+.draftJsLinkifyPlugin__addLinkButton__2BKP8:active {
+  background: #e6e6e6;
+}
+
+.draftJsLinkifyPlugin__addLinkPressedButton__1mZ9t {
+  background: #ededed;
+}
+
+.draftJsLinkifyPlugin__addLinkBottomGradient__2z3iJ {
+  width: 100%;
+  height: 1em;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: white;
+  pointer-events: none;
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+
+.draftJsLinkifyPlugin__addLinkInput__31nQz {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  cursor: text;
+  padding: 4px;
+  width: 78%;
+  border-radius: 2px;
+  margin-bottom: 1em;
+  box-shadow: inset 0px 1px 8px -3px #ABABAB;
+  background: #fefefe;
+}
+
+.draftJsLinkifyPlugin__addLinkInput__31nQz:focus {
+  outline: none !important;
+}
+
+.draftJsLinkifyPlugin__addLinkInputError__2ao3B {
+  color: darkred;
+  border: 1px solid darkred;
+  box-shadow: none;
+}
+
+.draftJsLinkifyPlugin__addLinkConfirmButton__2jIVZ {
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 0;
+  color: #888;
+  margin: 0;
+  border-radius: 0.4em;
+  cursor: pointer;
+  height: 2.1em;
+  width: 8%;
+  font-size: 1em;
+  line-height: 2.1em;
+  margin: 0;
+  margin-left: 1%;
+}
+
+.draftJsLinkifyPlugin__addLinkConfirmButton__2jIVZ:focus {
+  outline: 0;
+}
+
+.draftJsLinkifyPlugin__addLinkConfirmButton__2jIVZ:hover {
+  background: #f3f3f3;
+}
+
+.draftJsLinkifyPlugin__addLinkConfirmButton__2jIVZ:active {
+  background: #e6e6e6;
+}
+
+.draftJsLinkifyPlugin__addLinkError__2YYmJ {
+  opacity: 0;
+  color: red;
+}
+
+.draftJsLinkifyPlugin__addLinkErrorDisabled__1w6oW {
+  opacity: 1;
+  color: red;
+}
 .draftJsLinkifyPlugin__link__2ittM, .draftJsLinkifyPlugin__link__2ittM:visited {
   color: #5e93c5;
   text-decoration: none;
