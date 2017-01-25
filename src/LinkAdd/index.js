@@ -9,6 +9,8 @@ const linkify = linkifyIt();
 export default class LinkAdd extends Component {
   static defaultProps = {
     placeholder: 'Paste the link url …',
+    showAddButton: true,
+    showCloseButton: true,
   };
 
   // Start the popover closed
@@ -97,6 +99,15 @@ export default class LinkAdd extends Component {
       `${styles.addLinkInput} ${styles.addLinkInputError}` :
       styles.addLinkInput;
 
+    let inputWidth;
+    if (this.props.showAddButton && this.props.showCloseButton) { // 2 buttons
+      inputWidth = '78%';
+    } else if (!this.props.showAddButton && !this.props.showCloseButton) { // no buttons
+      inputWidth = '100%';
+    } else { // 1 button
+      inputWidth = '89%';
+    }
+
     return (
       <div className={styles.addLink}>
         <div
@@ -109,24 +120,33 @@ export default class LinkAdd extends Component {
             type="text"
             placeholder={this.props.placeholder}
             className={inputClassName}
+            style={{ width: inputWidth }}
             onChange={this.changeUrl}
             onKeyDown={(e) => this.onKeyDown(e)}
             value={this.state.url}
           />
-          <button
-            className={styles.addLinkConfirmButton}
-            type="button"
-            onClick={this.addLink}
-          >
-            +
-          </button>
-          <button
-            className={styles.addLinkConfirmButton}
-            type="button"
-            onClick={this.closePopover}
-          >
-            x
-          </button>
+          {
+            this.props.showAddButton && (
+              <button
+                className={styles.addLinkConfirmButton}
+                type="button"
+                onClick={this.addLink}
+              >
+                +
+              </button>
+            )
+          }
+          {
+            this.props.showCloseButton && (
+              <button
+                className={styles.addLinkConfirmButton}
+                type="button"
+                onClick={this.closePopover}
+              >
+                x
+              </button>
+            )
+          }
         </div>
       </div>
     );
