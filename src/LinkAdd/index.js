@@ -7,6 +7,10 @@ import styles from '../linkAddStyles.css';
 const linkify = linkifyIt();
 
 export default class LinkAdd extends Component {
+  static defaultProps = {
+    placeholder: 'Paste the link url …',
+  };
+
   // Start the popover closed
   state = {
     url: '',
@@ -103,7 +107,7 @@ export default class LinkAdd extends Component {
           <input
             ref={(element) => { this.inputElement = element; }}
             type="text"
-            placeholder="Paste the link url …"
+            placeholder={this.props.placeholder}
             className={inputClassName}
             onChange={this.changeUrl}
             onKeyDown={(e) => this.onKeyDown(e)}
