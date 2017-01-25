@@ -154,7 +154,9 @@ export default class LinkAdd extends Component {
                 type="button"
                 onClick={this.removeLink}
               >
-                x
+                <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 1L9 0 5 4 1 0 0 1l4 4-4 4 1 1 4-4 4 4 1-1-4-4" fillRule="evenodd" />
+                </svg>
               </button>
             )
           }

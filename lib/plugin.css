@@ -67,13 +67,10 @@
 
 .draftJsLinkifyPlugin__addLinkInput__31nQz {
   box-sizing: border-box;
-  border: 1px solid #ddd;
   cursor: text;
   padding: 4px;
   width: 78%;
-  border-radius: 2px;
   margin-bottom: 1em;
-  box-shadow: inset 0px 1px 8px -3px #ABABAB;
   background: #fefefe;
 }
 
@@ -90,11 +87,9 @@
 .draftJsLinkifyPlugin__addLinkConfirmButton__2jIVZ {
   box-sizing: border-box;
   background: #fff;
-  border: 1px solid #ddd;
   padding: 0;
-  color: #888;
+  color: #E1E1E1;
   margin: 0;
-  border-radius: 0.4em;
   cursor: pointer;
   height: 2.1em;
   width: 8%;
@@ -108,12 +103,9 @@
   outline: 0;
 }
 
-.draftJsLinkifyPlugin__addLinkConfirmButton__2jIVZ:hover {
-  background: #f3f3f3;
-}
-
+.draftJsLinkifyPlugin__addLinkConfirmButton__2jIVZ:hover,
 .draftJsLinkifyPlugin__addLinkConfirmButton__2jIVZ:active {
-  background: #e6e6e6;
+  color: #888;
 }
 
 .draftJsLinkifyPlugin__addLinkError__2YYmJ {
