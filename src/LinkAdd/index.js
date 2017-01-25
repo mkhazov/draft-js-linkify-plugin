@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import linkifyIt from 'linkify-it';
-import modifier from '../modifiers/addLink';
+import addLink from '../modifiers/addLink';
+import removeLink from '../modifiers/removeLink';
 import styles from '../linkAddStyles.css';
 
 const linkify = linkifyIt();
@@ -83,11 +84,17 @@ export default class LinkAdd extends Component {
     const { url } = this.state;
     if (linkify.test(url)) {
       this.setState({ linkError: false });
-      onChange(modifier(editorState, url));
+      onChange(addLink(editorState, url));
       this.closePopover();
     } else {
       this.setState({ linkError: true });
     }
+  };
+
+  removeLink = () => {
+    const { editorState, onChange } = this.props;
+    onChange(addLink(editorState));
+    this.closePopover();
   };
 
   changeUrl = (evt) => {
@@ -145,7 +152,7 @@ export default class LinkAdd extends Component {
               <button
                 className={styles.addLinkConfirmButton}
                 type="button"
-                onClick={this.closePopover}
+                onClick={this.removeLink}
               >
                 x
               </button>
