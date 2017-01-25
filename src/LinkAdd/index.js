@@ -11,7 +11,7 @@ export default class LinkAdd extends Component {
   static defaultProps = {
     placeholder: 'Paste the link url …',
     showAddButton: true,
-    showCloseButton: true,
+    showRemoveButton: true,
   };
 
   // Start the popover closed
@@ -93,7 +93,7 @@ export default class LinkAdd extends Component {
 
   removeLink = () => {
     const { editorState, onChange } = this.props;
-    onChange(addLink(editorState));
+    onChange(removeLink(editorState));
     this.closePopover();
   };
 
@@ -111,9 +111,9 @@ export default class LinkAdd extends Component {
       styles.addLinkInput;
 
     let inputWidth;
-    if (this.props.showAddButton && this.props.showCloseButton) { // 2 buttons
+    if (this.props.showAddButton && this.props.showRemoveButton) { // 2 buttons
       inputWidth = '78%';
-    } else if (!this.props.showAddButton && !this.props.showCloseButton) { // no buttons
+    } else if (!this.props.showAddButton && !this.props.showRemoveButton) { // no buttons
       inputWidth = '100%';
     } else { // 1 button
       inputWidth = '89%';
@@ -148,7 +148,7 @@ export default class LinkAdd extends Component {
             )
           }
           {
-            this.props.showCloseButton && (
+            this.props.showRemoveButton && (
               <button
                 className={styles.addLinkConfirmButton}
                 type="button"
