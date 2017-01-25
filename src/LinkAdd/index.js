@@ -39,6 +39,10 @@ export default class LinkAdd extends Component {
       e.preventDefault();
       e.stopPropagation();
       this.addLink();
+    } else if (e.keyCode === 27) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.closePopover();
     }
   }
 
