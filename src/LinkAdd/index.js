@@ -5,8 +5,6 @@ import addLink from '../modifiers/addLink';
 import removeLink from '../modifiers/removeLink';
 import styles from '../linkAddStyles.css';
 
-const linkify = linkifyIt();
-
 export default class LinkAdd extends Component {
   static defaultProps = {
     placeholder: 'Paste the link url …',
@@ -18,8 +16,12 @@ export default class LinkAdd extends Component {
   state = {
     url: '',
     open: false,
-    linkError: false
+    linkError: false,
+    linkifySchema: {},
+    linkifyOptions: {}
   };
+
+  linkify = new linkifyIt(this.props.linkifySchema, this.props.linkifyOptions);
 
   // When the popover is open and users click anywhere on the page,
   // the popover should close
@@ -78,7 +80,7 @@ export default class LinkAdd extends Component {
   addLink = () => {
     const { editorState, onChange } = this.props;
     const { url } = this.state;
-    if (linkify.test(url)) {
+    if (this.linkify.test(url)) {
       this.setState({ linkError: false });
       onChange(addLink(editorState, url));
       this.closePopover();
