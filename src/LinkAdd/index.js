@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import linkifyIt from 'linkify-it';
+import getEntityForSelection from '../utils/getEntityForSelection';
 import addLink from '../modifiers/addLink';
 import removeLink from '../modifiers/removeLink';
 import styles from '../linkAddStyles.css';
 
 export default class LinkAdd extends Component {
+  static propTypes = {
+    placeholder: PropTypes.string,
+    showAddButton: PropTypes.bool,
+    showRemoveButton: PropTypes.bool,
+  };
+
   static defaultProps = {
     placeholder: 'Paste the link url …',
     showAddButton: true,
@@ -58,6 +65,15 @@ export default class LinkAdd extends Component {
 
   openPopover = () => {
     if (!this.state.open) {
+      const entity = getEntityForSelection(this.props.editorState);
+      let url = '';
+
+      if (entity && entity.getData().url) {
+        url = entity.getData().url;
+      }
+
+      this.setState({ url });
+
       this.preventNextClose = true;
       // eslint-disable-next-line react/no-find-dom-node
       const toolbarElement = ReactDOM.findDOMNode(this.props.inlineToolbarElement);
@@ -72,6 +88,7 @@ export default class LinkAdd extends Component {
   closePopover = () => {
     if (!this.preventNextClose && this.state.open) {
       this.setState({ open: false });
+      this.setState({ url: '' });
     }
 
     this.preventNextClose = false;
