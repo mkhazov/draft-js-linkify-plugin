@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
+import { getVisibleSelectionRect } from 'draft-js';
 import linkifyIt from 'linkify-it';
+import getRelativeParent from '../utils/getRelativeParent';
 import getEntityForSelection from '../utils/getEntityForSelection';
 import addLink from '../modifiers/addLink';
 import removeLink from '../modifiers/removeLink';
@@ -53,13 +55,31 @@ export default class LinkAdd extends Component {
   }
 
   setPosition = (toolbarElement) => {
-    const position = {
-      top: toolbarElement.offsetTop,
-      left: toolbarElement.offsetLeft,
-      width: toolbarElement.offsetWidth,
-      transform: 'translate(-50%) scale(1)',
-      transition: 'transform 0.15s cubic-bezier(.3,1.2,.2,1)',
-    };
+    let position;
+
+    // toolbar is visible
+    if (toolbarElement.style.top !== '') {
+      position = {
+        top: toolbarElement.offsetTop,
+        left: toolbarElement.offsetLeft,
+        width: toolbarElement.offsetWidth,
+        transform: 'translate(-50%) scale(1)',
+        transition: 'transform 0.15s cubic-bezier(.3,1.2,.2,1)',
+      };
+    // toolbar is not visible
+    } else {
+      const relativeParent = getRelativeParent(toolbarElement.parentElement);
+      const relativeRect = relativeParent ? relativeParent.getBoundingClientRect() : document.body.getBoundingClientRect();
+      const selectionRect = getVisibleSelectionRect(window);
+
+      position = {
+        top: (selectionRect.top - relativeRect.top) - toolbarElement.scrollHeight - 2,
+        left: (selectionRect.left - relativeRect.left) + (selectionRect.width / 2),
+        transform: 'translate(-50%) scale(1)',
+        transition: 'transform 0.15s cubic-bezier(.3,1.2,.2,1)',
+      };
+    }
+
     this.setState({ position });
   }
 
