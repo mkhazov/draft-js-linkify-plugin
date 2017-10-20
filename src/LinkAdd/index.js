@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { getVisibleSelectionRect } from 'draft-js';
 import linkifyIt from 'linkify-it';
